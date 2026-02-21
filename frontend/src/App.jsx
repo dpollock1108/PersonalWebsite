@@ -3,8 +3,10 @@ import './App.css'
 const navItems = [
   { label: 'About', href: '#about' },
   { label: 'Skills', href: '#skills' },
-  { label: 'Projects', href: '#projects' },
+  { label: 'Cloud Projects', href: '#projects' },
   { label: 'Experience', href: '#experience' },
+  { label: 'Other Projects', href: '#other-projects' },
+  { label: 'Certifications', href: '#certifications' },
   { label: 'Contact', href: '#contact' },
 ]
 
@@ -55,18 +57,56 @@ const projects = [
 
 const experience = [
   {
-    role: 'Software Engineer',
-    company: 'Your Company',
-    timeframe: '2023 — Present',
+    role: 'Cloud/Cybersecurity Engineer',
+    company: 'Booz Allen Hamilton',
+    timeframe: '2022 — Present',
     summary:
-      'Built cloud-native services, observability tooling, and developer platforms.',
+      'Assessed, planned, and developed cloud and cybersecurity implementations for government clients.',
+    tools: ['AWS', 'Azure', 'Python', 'RMF', 'CLI Deployment', 'REST API', 'Palantir Foundry'],
   },
   {
-    role: 'Full Stack Developer',
-    company: 'Previous Company',
-    timeframe: '2021 — 2023',
+    role: 'Power and Propulsion Engineer',
+    company: 'Serco Inc',
+    timeframe: '2019 — 2022',
     summary:
-      'Shipped customer-facing experiences and internal ops tooling.',
+      'Analyzed marine vessel fuel consumption for various design scenarios within a selected trade space.',
+    tools: ['MATLAB', 'VBA', 'Engineering Simulation', 'Fuel Modeling', 'Product Integration'],
+  },
+  {
+    role: 'Assistant Mechanical Engineer',
+    company: 'WSP USA',
+    timeframe: '2017 — 2019',
+    summary:
+      'Oversaw the design and implementation of mechanical systems for large scale critical infrastructure projects.',
+    tools: ['Autodesk Inventor', 'SOLIDWORKS', 'Project Management', 'System Design'],
+  },
+]
+
+const certifications = [
+  {
+    title: 'AWS Certified Cloud Practitioner',
+    issuer: 'Amazon Web Services',
+    date: '2024',
+  },
+  {
+    title: 'Security +',
+    issuer: 'CompTIA',
+    date: '2025',
+  },
+]
+
+const otherProjects = [
+  {
+    title: 'Mechanical Design Project',
+    description: 'Designed and prototyped an automated sorting system for industrial applications',
+    videoUrl: 'https://example.com/video1',
+    technologies: ['CAD Design', 'Prototyping', 'Automation'],
+  },
+  {
+    title: 'Engineering Analysis',
+    description: 'Performed structural analysis and optimization for mechanical components',
+    videoUrl: 'https://example.com/video2',
+    technologies: ['FEA', 'MATLAB', 'Data Analysis'],
   },
 ]
 
@@ -172,16 +212,25 @@ function App() {
             <p className="eyebrow">About</p>
             <h2>Building user-centric solutions with the mindset of an engineer.</h2>
           </div>
-          <div className="about-body">
-            <p>
-              I have spent the last 9 years solving my clients' problems through design, analysis, and engineering.
-              <br></br>
-            </p>
-            <p>
-              This site is backed by AWS infrastructure to demonstrate cloud
-              deployment, containerization, and infrastructure-as-code with
-              Terraform.
-            </p>
+          <div className="about-content">
+            <div className="about-photo">
+              <img 
+                src="/public/profile-photo.jpg" 
+                alt="Dylan Pollock" 
+                className="profile-image"
+              />
+            </div>
+            <div className="about-body">
+              <p>
+                I have spent the last {highlights.find(h => h.label === 'Years solving industry problems')?.value} years solving my clients' problems through design, analysis, and engineering.
+                <br></br>
+              </p>
+              <p>
+                This site is backed by AWS infrastructure to demonstrate cloud
+                deployment, containerization, and infrastructure-as-code with
+                Terraform.
+              </p>
+            </div>
           </div>
         </section>
 
@@ -232,7 +281,7 @@ function App() {
         <section id="experience" className="section">
           <div className="section-head">
             <p className="eyebrow">Experience</p>
-            <h2>Building platforms that scale with teams.</h2>
+            <h2>Industry professional with {highlights.find(h => h.label === 'Years solving industry problems')?.value} years of experience.</h2>
           </div>
           <div className="timeline">
             {experience.map((job) => (
@@ -243,6 +292,83 @@ function App() {
                 </div>
                 <div className="timeline-company">{job.company}</div>
                 <p>{job.summary}</p>
+                {job.tools && (
+                  <div className="chip-row">
+                    {job.tools.map((tool) => (
+                      <span key={tool} className="chip subtle">
+                        {tool}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section id="other-projects" className="section">
+          <div className="section-head">
+            <p className="eyebrow">Other Projects</p>
+            <h2>Non-software engineering projects and innovations.</h2>
+          </div>
+          <div className="other-project-grid">
+            {otherProjects.map((project) => (
+              <article key={project.title} className="other-project-card">
+                <h3>{project.title}</h3>
+                <p>{project.description}</p>
+                {project.videoUrl && (
+                  <div className="project-video">
+                    {project.videoUrl.includes('youtube') || project.videoUrl.includes('youtu.be') ? (
+                      <iframe
+                        className="video-player"
+                        src={project.videoUrl.includes('youtu.be') 
+                          ? `https://www.youtube.com/embed/${project.videoUrl.split('youtu.be/')[1]}`
+                          : `https://www.youtube.com/embed/${project.videoUrl.split('v=')[1]?.split('&')[0]}`
+                        }
+                        title={project.title}
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      ></iframe>
+                    ) : (
+                      <video 
+                        controls 
+                        className="video-player"
+                        src={project.videoUrl}
+                      >
+                        Your browser does not support the video tag.
+                      </video>
+                    )}
+                  </div>
+                )}
+                <div className="chip-row">
+                  {project.technologies.map((tech) => (
+                    <span key={tech} className="chip subtle">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section id="certifications" className="section">
+          <div className="section-head">
+            <p className="eyebrow">Certifications</p>
+            <h2>Professional certifications and credentials.</h2>
+          </div>
+          <div className="certification-grid">
+            {certifications.map((cert) => (
+              <div key={cert.title} className="certification-card">
+                <h3>{cert.title}</h3>
+                <div className="certification-details">
+                  <div className="certification-issuer">{cert.issuer}</div>
+                  <div className="certification-date">{cert.date}</div>
+                  {cert.credentialId && (
+                    <div className="certification-id">ID: {cert.credentialId}</div>
+                  )}
+                </div>
               </div>
             ))}
           </div>
