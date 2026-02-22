@@ -177,10 +177,10 @@ function App() {
           <div className="hero-card">
             <div className="card-header">
               <div>
-                <h2>Currently shipping</h2>
-                <p>Developer platforms and internal tooling.</p>
+                <h2>Currently building</h2>
+                <p>Deploying using modern cloud platforms and scalable practices.</p>
               </div>
-              <span className="chip">AWS ECS</span>
+              <span className="chip">Development Tools</span>
             </div>
             <div className="card-grid">
               <div className="card-tile">
@@ -223,12 +223,17 @@ function App() {
             <div className="about-body">
               <p>
                 I have spent the last {highlights.find(h => h.label === 'Years solving industry problems')?.value} years solving my clients' problems through design, analysis, and engineering.
-                <br></br>
               </p>
               <p>
-                This site is backed by AWS infrastructure to demonstrate cloud
-                deployment, containerization, and infrastructure-as-code with
-                Terraform.
+                I began my career working in mechanical design, solving engineering challenges in the infrastructure and marine engineering spaces.
+                The experience taught me the value of precision, attention to detail, and systematic problem-solving.
+              </p>
+              <p>
+                The next step of my career journey was the transition into information technology. 
+                I spent two years supporting enterprise navy cybersecurity for platform systems. This work was critical for maintaining the security and integrity of naval operations, and imparted the importance of applying established design processes to mission critical systems.
+              </p>
+              <p>
+                Currently, I work in the cloud architecture space, helping clients design and implement scalable, secure, and efficient cloud solutions.
               </p>
             </div>
           </div>
