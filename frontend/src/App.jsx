@@ -138,7 +138,7 @@ function App() {
           <a className="button ghost" href="#contact">
             Let&apos;s talk
           </a>
-          <a className="button primary" href="/resume.pdf">
+          <a className="button primary" href="/resume.pdf" target="_blank" rel="noopener noreferrer">
             Resume
           </a>
         </div>
@@ -390,15 +390,19 @@ function App() {
               AWS, Python, or developer experience.
             </p>
             <div className="contact-actions">
-              <a className="button primary" href="mailto:you@example.com">
-                you@example.com
+              <a className="button primary" href="mailto:dylan.pollock.biz@gmail.com">
+                <b>Email Me!</b>
               </a>
-              <a className="button ghost" href="https://github.com/your-handle">
+              <a className="button social" href="https://github.com/dpollock1108"
+              target="_blank"
+              rel="noopener noreferrer">
                 GitHub
               </a>
               <a
-                className="button ghost"
-                href="https://www.linkedin.com/in/your-handle"
+                className="button social"
+                href="https://www.linkedin.com/in/dylan-pollock/"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 LinkedIn
               </a>
@@ -409,7 +413,7 @@ function App() {
 
       <footer className="footer">
         <span>Built with React, FastAPI, and AWS.</span>
-        <span>© 2026 Your Name</span>
+        <span>© 2026 Dylan Pollock</span>
       </footer>
     </div>
   )
