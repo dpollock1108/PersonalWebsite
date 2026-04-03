@@ -38,6 +38,7 @@ const projects = [
       'A results tracking app and dashboard for the New York Times Mini Crossword built to assign a score to those on my New York Times Crossword friends list',
     impact: 'Bragging rights over my friends.',
     stack: ['React', 'FastAPI', 'AWS RDS', 'ECS', 'Python Backend'],
+    url: 'https://crosswordboys.com',
   },
   {
     title: 'Placeholder',
@@ -45,6 +46,7 @@ const projects = [
       'Lorem Ipsum.',
     impact: 'Lorem Ipsum.',
     stack: ['Lorem Ipsum.', 'Lorem Ipsum.'],
+    url: 'https://example.com',
   },
   {
     title: 'Placeholder',
@@ -52,6 +54,7 @@ const projects = [
       'Lorem Ipsum.',
     impact: 'Lorem Ipsum.',
     stack: ['Lorem Ipsum.', 'Lorem Ipsum.', 'Lorem Ipsum.'],
+    url: 'https://example.com',
   },
 ]
 
@@ -268,7 +271,7 @@ function App() {
           <div className="project-grid">
             {projects.map((project) => (
               <article key={project.title} className="project-card">
-                <h3>{project.title}</h3>
+                <h3><a href={project.url} className="project-link">{project.title}</a></h3>
                 <p>{project.description}</p>
                 <div className="project-impact">{project.impact}</div>
                 <div className="chip-row">
