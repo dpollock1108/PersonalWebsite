@@ -402,37 +402,21 @@
   border: 1px solid rgba(16, 25, 34, 0.08);
   display: grid;
   gap: 12px;
+  color: var(--color-ink);
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.project-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(16, 25, 34, 0.1);
 }
 
 .project-card h3 {
   margin: 0;
 }
 
-.project-card h3 a {
-  color: var(--color-ink);
-  text-decoration: none;
-  transition: color 0.2s ease;
-  position: relative;
-  display: inline-block;
-}
-
-.project-card h3 a:hover {
-  color: #3b82f6;
-}
-
-.project-card h3 a::after {
-  content: '↗';
-  position: absolute;
-  right: -20px;
-  top: 2px;
-  font-size: 0.8em;
-  opacity: 0;
-  transition: opacity 0.2s ease;
-}
-
-.project-card h3 a:hover::after {
-  opacity: 1;
-}
 
 .project-impact {
   font-weight: 600;
