@@ -35,9 +35,13 @@ const projects = [
     title: 'Crossword League',
     description:
       'A results tracking app and dashboard for the New York Times Mini Crossword built to assign a score to those on my New York Times Crossword friends list',
-    impact: 'Bragging rights over my friends.',
-    stack: ['React', 'FastAPI', 'Google Cloud Platform', 'ECS', 'Python Backend'],
+    impact: 'Creates a scoring system to assign a victor among friends.',
     url: 'https://crosswordboys.com',
+    stack: {
+      frontend: ['React', 'Vite'],
+      backend: ['FastAPI', 'Python'],
+      infrastructure: ['Google Cloud Platform', 'Cloud Run' , 'Cloud SQL']
+    }
   },
 ]
 
@@ -270,17 +274,26 @@ function App() {
           </div>
           <div className="project-grid">
             {projects.map((project) => (
-              <a key={project.title} href={project.url} target="_blank" rel="noopener noreferrer" className="project-card">
-                <h3>{project.title}</h3>
-                <p>{project.description}</p>
-                <div className="project-impact">{project.impact}</div>
-                <div className="chip-row">
-                  {project.stack.map((item) => (
-                    <span key={item} className="chip subtle">
-                      {item}
-                    </span>
-                  ))}
-                </div>
+              <a key={project.title} href={project.url} target="_blank" rel="noopener noreferrer" className="project-card-link">
+                <article className="project-card">
+                  <h3 className="project-link">{project.title}</h3>
+                  <p>{project.description}</p>
+                  <div className="project-impact">{project.impact}</div>
+                  <div className="project-stack">
+                    {Object.entries(project.stack).map(([category, items]) => (
+                      <div key={category} className="stack-category">
+                        <div className="stack-category-label">{category}</div>
+                        <div className="chip-row">
+                          {items.map((item) => (
+                            <span key={item} className="chip subtle">
+                              {item}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </article>
               </a>
             ))}
           </div>
