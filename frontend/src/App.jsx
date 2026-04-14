@@ -26,7 +26,7 @@ const skills = [
   },
   {
     title: 'Cloud',
-    items: ['AWS', 'Azure', 'CLI Deployment', 'CI/CD'],
+    items: ['AWS', 'Azure', 'GCP', 'CLI Deployment', 'CI/CD'],
   },
 ]
 
