@@ -1,11 +1,9 @@
 # Personal Website
 
-React + FastAPI personal website deployed on AWS.
+Firebase-hosted personal website.
 
 ## Stack
 - Frontend: React + Vite
-- Backend: FastAPI (Python)
-- Infra: Terraform + AWS (S3, CloudFront, ECS Fargate, ALB, ECR)
 
 ## Project structure
 ```
@@ -22,19 +20,10 @@ npm install
 npm run dev
 ```
 
-Backend:
-```
-cd backend
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-uvicorn app.main:app --reload --port 8000
-```
 
 ## Deployment
-- Terraform setup: `infra/terraform/README.md`
-- Build frontend: `npm run build` and sync to S3
-- Build backend: Docker image to ECR, ECS service points to it
+- Build frontend: `npm run build`
+- Deploy to Firebase: `firebase deploy`
 
 ## Customize content
 Edit `frontend/src/App.jsx` to update sections, projects, and contact details.

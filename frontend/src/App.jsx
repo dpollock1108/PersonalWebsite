@@ -11,8 +11,8 @@ const navItems = [
 ]
 
 const highlights = [
-  { label: 'Years in industry', value: '9' },
-  { label: 'Years in cloud & software', value: '2+' },
+  { label: 'Years in engineering', value: '9' },
+  { label: 'Years in cloud', value: '2+' },
 ]
 
 const skills = [
@@ -75,6 +75,12 @@ const otherProjects = [
     videoUrl: 'https://youtu.be/n03Py4CDRLk',
     technologies: ['CAD Design', 'Prototyping', 'Circuitry', 'Raspberry Pi', 'Embedded Systems'],
   },
+  {
+    title: 'Neon Fish',
+    description: 'Built a programmable light show for a fixture of a glass fish that I own. Utilized Arudino to control LED strip with custom patterns.',
+    videoUrl: 'https://youtu.be/Qfstks4WC_I',
+    technologies: ['Circuitry', 'Prototyping', 'Arduino'],
+  }
 ]
 
 const certifications = [
@@ -155,10 +161,10 @@ function App() {
           <div className="hero-card">
             <div className="card-header">
               <div>
-                <h2>Currently building</h2>
+                <h2>This Site</h2>
                 <p>Deploying using modern cloud platforms and scalable practices.</p>
               </div>
-              <span className="chip">Development Tools</span>
+              <span className="chip">Modern Toolset</span>
             </div>
             <div className="card-grid">
               <div className="card-tile">
@@ -166,16 +172,12 @@ function App() {
                 <strong>React + Vite</strong>
               </div>
               <div className="card-tile">
-                <span>Backend</span>
-                <strong>FastAPI</strong>
-              </div>
-              <div className="card-tile">
                 <span>Infra</span>
-                <strong>Terraform</strong>
+                <strong>Firebase</strong>
               </div>
               <div className="card-tile">
-                <span>Delivery</span>
-                <strong>CI/CD Pipelines</strong>
+                <span>DNS</span>
+                <strong>Cloudflare</strong>
               </div>
             </div>
             <div className="card-footer">
